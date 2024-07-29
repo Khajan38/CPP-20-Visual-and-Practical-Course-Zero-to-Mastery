@@ -1,6 +1,7 @@
+//Mission 1 : Make a Total_Cost_Generator
+
 #include <iostream>
 using namespace std;
-//Make a Total_Cost_Generator
 int main(){
      float SALES_TAX_RATE {0.08}, Price;
      int Quantity;
