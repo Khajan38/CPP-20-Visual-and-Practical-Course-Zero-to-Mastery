@@ -1,8 +1,8 @@
 #include <iostream>
 //Using Header File since Modules are still developing in gcc and creating problems in compilation
-#include "Main Header File" 
-#include "Functions Header File"
-#include "Display Header File"
+#include "Main Header File.h" 
+#include "Functions Header File.h"
+#include "Display Header File.h"
 #include <memory>
 
 using namespace std;
