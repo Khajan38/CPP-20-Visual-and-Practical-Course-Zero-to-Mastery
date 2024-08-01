@@ -1,8 +1,8 @@
 #include <iostream>
 //Using Header File since Modules are still developing in gcc and creating problems in compilation
-#include "Main Header File.hpp" 
-#include "Functions Header File.hpp"
-#include "Display Header File.hpp"
+#include "Task-Management-System\Main Header File.hpp"
+#include "Task-Management-System\Function Header File.hpp"
+#include "Task-Management-System\Display_Functions\Display Header File.hpp"
 #include <memory>
 
 using namespace std;
@@ -77,7 +77,7 @@ int main(){
                     break;
                }
                case 6:
-                    system("python Help_and_Feedback.py");
+                    system("python Task-Management-System\\Help_and_Feedback.py");
                     break;
                case 7:
                     Main_Functions::Exiting_Window();

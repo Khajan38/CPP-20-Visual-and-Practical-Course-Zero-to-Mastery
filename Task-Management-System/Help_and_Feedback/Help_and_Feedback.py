@@ -5,7 +5,7 @@ def HELP():
      myfile = open(r"Help_and_Feedback.txt","r")
      i,m = [222, 934, 644, 192],0
      while m < 5:
-          print("="*133, "\n\t\t\t\t\t\t      TASK TRACKER : HELP WINDOW\n")
+          print("\n", "="*133, "\n\t\t\t\t\t\t      TASK TRACKER : HELP WINDOW\n")
           print("="*133)
           if m < 4:
                print(myfile.read(i[m]))
@@ -19,7 +19,7 @@ def HELP():
           m = m + 1
 
 def FEEDBACK():
-     print("="*133, "\n\t\t\t\t\t\t  TASK TRACKER : FEEDBACK WINDOW\n")
+     print("\n", "="*133, "\n\t\t\t\t\t\t  TASK TRACKER : FEEDBACK WINDOW\n")
      print("="*133)
      print('''\n\t\t\tRatings :
           
