@@ -9,11 +9,11 @@ This branch in the repository specifically contains the missions focused on the 
   - POPS vs OOPS
   - Classes and Objects
   - Access Specifiers : public, private and protected
-  - Encapsulation - 1st Pillar of OOPS
+  - __Encapsulation - 1st Pillar of OOPS__
   - Constructors and Destructors, Move Sementics
   - Static Data Members and Static Data Functiosn
   - Friend Functions, Classes and Member Functions
-  - Inheritance - 2nd Pillar of OOPS
+  - __Inheritance - 2nd Pillar of OOPS__
       - Single Inheritance
       - Multiple Inheritance
       - Hierarchical Inheritance
@@ -27,7 +27,7 @@ This branch in the repository specifically contains the missions focused on the 
   - this Pointer and Object Chaining
   - explicit Keyword
   - const Objects and mutable keyword
-  - Polymorphism - 3rd Pillar of OOPS
+  - **Polymorphism - 3rd Pillar of OOPS**
       - Function Overloading
       - Function Hiding
       - Operator Overloading:
@@ -37,7 +37,7 @@ This branch in the repository specifically contains the missions focused on the 
       - Function Overriding
       - final specifier
       - Static and Dynamic Binding
-  - Abstraction - 4th Pillar of OOPS
+  - **Abstraction - 4th Pillar of OOPS**
   - Polymorphic Collections
   - Upcasting and Downcasting
   - Generic Programming
