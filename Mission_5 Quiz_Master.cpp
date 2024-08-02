@@ -10,7 +10,6 @@ char Mission5_Bottom_Line (int page){
           printline;
           char restart_choice;
           cout<<"\t\t\t\t\t  Enter R to go to Restart or any other key to exit : ";
-          cin.ignore(INT_MAX, '\n');
           cin>>restart_choice;
           return restart_choice;
      }
@@ -26,13 +25,13 @@ char Mission5_Bottom_Line (int page){
           cout<<"\t\t\t\t\t          Press any key to go to Result Window : ";
           cin.ignore(INT_MAX, '\n');
           cin.get();
-          return '\0';
+          return 'M';
      }
      return '\0';
 }
 
 vector <string> Questions {"Who invented Computer? ", "Which is the largest planet in our Solar System? ", "Which famous scientist developed the theory of General Relativity? ", "Which planet is known as the Red Planet? ", "Who invented C++ Programming Language? "};
-vector <string> Answers {"Charles Babbage", "Jupiter", "Albert Einstein", "Mars", "Bjarne Stroustrup "};
+vector <string> Answers {"Charles Babbage", "Jupiter", "Albert Einstein", "Mars", "Bjarne Stroustrup"};
 array <vector <string>, 5> Choices {
      vector <string> {"Steve Jobs", "James Gosling", "Charles Babbage", "Bill Gates"},
      vector <string> {"Earth", "Jupiter", "Neptune", "Saturn"},
@@ -56,16 +55,16 @@ int main(){
                for (vector <string> :: iterator itr_A{Choices[count - 1].begin()}; itr_A != Choices[count-1].end(); itr_A++, option_choice++)
                     cout<<"\t"<<option_choice<<". "<<*itr_A<<endl;
                cout<<"\nEnter Your Answer : "; cin>>ChoiceNum;
-               if (Choices[count - 1][ChoiceNum - 1] == Answers[count - 1]){
+               if (ChoiceNum > 0 && ChoiceNum < 5 && Choices[count - 1][ChoiceNum - 1] == Answers[count - 1]){
                     cout<<"\nYour answer was correct..."<<endl;
                     Marks += 10;
                     if (count < 5) Mission5_Bottom_Line(2);
-                    else{Mission5_Bottom_Line(3); restart_choice = 'R';}
+                    else{restart_choice = Mission5_Bottom_Line(3);}
                }
                else if (ChoiceNum > 0 && ChoiceNum < 5){
                     cout<<"\nSorry Wrong Option Choosen. Correct Answer : "<<Answers[count - 1]<<endl;
                     if (count < 4) Mission5_Bottom_Line(2);
-                    else Mission5_Bottom_Line(3);
+                    else {restart_choice = Mission5_Bottom_Line(3);}
                }
                else {
                     cout<<"\nOption Choosen out of Range..."<<endl;

@@ -1,3 +1,5 @@
+//Additional Missions : Contact Diary
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "Display_Basics.hpp"
@@ -17,7 +19,7 @@ void display(void){
           printf("Phone number : ");
           printf("%llu\n", contact[i].phoneno);
      }
-     printf("\n%sPress enter to continue...", padding("Press enter to continue..."));
+     std::cout<<endl<<padding("Press enter to continue...")<<"Press enter to continue...";
      getchar();
      scanf("[^\n]%s", "Hello");
 }
@@ -40,7 +42,7 @@ void search(void){
 void phn_delete(void){
      Header("DELETION WINDOW");
      if (n == 0){
-          printf("\n\n%sNo Contacts left in Diary...\n", padding("No Contacts left in Diary..."));
+          std::cout<<endl<<endl<<padding("No Contacts left in Diary...")<<"No Contacts left in Diary...\n";
           return;
      }
      unsigned long long int no;
@@ -52,11 +54,11 @@ void phn_delete(void){
                for (int j = i; j < n; j++) 
                     contact[j] = contact[j + 1];
                n--;
-               printf("\n\n\t\t\t\t\t\t     Contact Succesfully Deleted...\n");
+               std::cout<<endl<<endl<<padding("Contact Succesfully Deleted...")<<"Contact Succesfully Deleted...\n";
                return;
           }
      }
-     printf("\n\n\t\t\t\t\t\t       Contact Record Not Found...\n");
+     std::cout<<endl<<endl<<padding("Contact Record Not Found...\n")<<"Contact Record Not Found...\n";
 }
 
 void input(void){
@@ -80,7 +82,7 @@ void insert(void){
      printf("Enter Phone number : ");
      scanf("%llu", &contact[n].phoneno);
      n++;
-     printf("\n%sDetails Succesfully Inserted...\n", padding("Details Succesfully Inserted..."));
+     std::cout<<endl<<padding("Details Succesfully Inserted...")<<"Details Succesfully Inserted...\n";
 }
 
 void out(void){
@@ -103,7 +105,7 @@ int main(){
                case 'E' : out(); break;
                default : (printf("\nInvalid choice..."));
           }
-          printf("\n\n%sDo you want to go back to Main Menu ? (y/n) : ", padding("Do you want to go back to Main Menu ? (y/n) : "));
+          std::cout<<endl<<padding("Do you want to go back to Main Menu ? (y/n) : ")<<"Do you want to go back to Main Menu ? (y/n) : ";
           scanf(" %c", &repeat);
           if (repeat == 'n') out();
      }
