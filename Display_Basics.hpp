@@ -1,3 +1,32 @@
+/*OVERVIEW : 
+This file provides utility functions and macros for a console-based application, likely a menu-driven system, with functions for display formatting, menu navigation, and program flow control. It includes functionalities such as drawing lines, clearing the screen, and displaying headers and footers.
+
+DEPENDENCIES :
+   -> Standard Libraries: <iostream>, <vector>, <array>, <thread>, <chrono>
+   -> Windows API: <windows.h>
+
+MACROS AND LAMBDA FUNCTIONS : 
+   -> printline: Macro to print a line of equal signs (=) based on the console width.
+   -> sleep(timed): Macro to pause the execution for a specified number of seconds.
+   -> clear_screen: Macro to clear the console screen.
+   -> line: Lambda function that returns a string of equal signs based on the console width.
+   -> padding(text): Lambda function to calculate padding for center-aligning text based on console width.
+
+FUNCTIONS : 
+   -> getConsoleWidth(): Returns the width of the console window in characters.
+
+   -> Header(string Heading): Clears the screen and prints the provided heading text, centered, with a line above and below.
+
+   -> Bottom_Line(int page): Prints different messages based on the page value. Used for transitions like "Continuing..." or "Initiating your request...".
+
+   -> Bottom_Line_2(array<string, 2> &Exit_Parts): Provides an option to return to the main menu or exit the application. If the user chooses to exit, it calls Exiting_Window.
+
+   -> Entrance_Window(char restart_choice, array<string, 3> &Entrance_Parts): Displays the entrance window with a header and the specified messages. It also waits for user input to proceed.
+
+   -> Main_Menu(vector<string> &Menu_items): Displays a list of menu items and prompts the user to select one. Returns the user's choice.
+   
+   -> Exiting_Window(array<string, 2> &Exit_Parts): Displays a thank-you message and exits the application gracefully.*/
+
 #pragma once
 
 #include <iostream>

@@ -1,3 +1,34 @@
+//Member Functions File.hpp
+
+/*OVERVIEW : 
+This file contains the core functionalities for managing book borrowing and returning, displaying borrowed books, and generating a membership card within the Library Management System. It includes operations that a library member can perform, such as borrowing books, returning them, viewing borrowed books, and accessing their membership card details.
+
+DEPENDENCIES : 
+   -> Standard Libraries: <iostream>, <format>, <cctype>
+   -> Custom Header Files:
+        * "Classes Declaration File.hpp"
+        * "Library Functions File.hpp"
+
+FUNCTIONS : 
+   -> Borrow_Book(char Access_Type, unique_ptr<Member> &Current_Member, vector<unique_ptr<Member>> &Members, vector<unique_ptr<Book>> &Books): 
+        * Displays a header for borrowing books and lists available books.
+        * Prompts the user to enter a Book ID to borrow.
+        * If the book is available, updates the book's status to "Borrowed" and associates it with the current member.
+
+   -> Return_Book(unique_ptr<Member> &Current_Member, vector<unique_ptr<Book>> &Books):
+        * Displays a header for returning books.
+        * Prompts the user to enter a Book ID to return.
+        * Updates the book's status to "Returned" and disassociates it from the member if the book was previously borrowed by the member.
+
+   -> Borrowed_Books(unique_ptr<Member> &Current_Member, vector<unique_ptr<Book>> &Books):
+        * Displays a list of books currently borrowed by the member.
+        * Shows details such as ID, title, author, and year published for each borrowed book.
+     
+   -> Membership_Card(unique_ptr<Member> &Current_Member):
+        * Displays the member's membership card details, including name, age, and member ID.
+        * Formats the card as a visually appealing block with fields like "Name," "Age," and "Member ID," along with placeholders for the member's and director's signatures.
+*/
+
 #pragma once
 #include <iostream>
 #include "Classes Declaration File.hpp"

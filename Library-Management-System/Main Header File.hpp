@@ -1,4 +1,31 @@
-/*A*/
+//Main Header File.hpp
+
+/*OVERVIEW : 
+This file serves as a central header and contains the main functionalities for the Library Management System, including the login mechanism and main menus for both members and directors. It provides functions for navigating between different sections of the application based on the user's role.
+
+DEPENDENCIES : 
+   -> Standard Libraries: <iostream>, <memory>
+   -> Custom Header Files:
+        * "Member Functions File.hpp"
+        * "Display_Basics.hpp"
+   -> GLOBAL VARIABLES
+        * int Current_MemberId: A variable used to store the ID of the currently logged-in member.
+
+FUNCTIONS : 
+   -> char Login_Page(vector<unique_ptr<Member>> &Members):
+        * Manages the login process for both members and directors.
+        * Prompts the user to enter their Member ID, Name, and Password.
+        * Validates the credentials against the list of members.
+        * Returns 'M' for a member or 'D' for a director based on the login credentials.
+
+   -> void Member_Menu(char Access_Type, vector<unique_ptr<Member>> &Members, vector<unique_ptr<Book>> &Books):
+        * Provides a menu for library members with options to borrow books, return books, display borrowed books, view membership cards, or exit.
+        * Calls appropriate functions based on the user's choice.
+
+   -> void Director_Menu(char Access_Type, Library &L, vector<unique_ptr<Member>> &Members, vector<unique_ptr<Book>> &Books):
+        * Provides a menu for library directors with options to display all books, display all members, add new books, delete books, add new members, delete members, or exit.
+        * Manages the high-level operations of the library system, including adding and removing books and members.*/
+
 #pragma once
 #include <iostream>
 #include <memory>

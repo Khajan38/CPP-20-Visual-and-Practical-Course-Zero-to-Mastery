@@ -1,3 +1,44 @@
+//Library Functions File.hpp
+
+/*OVERVIEW : 
+This file defines several functions for managing books and members in the Library Management System. The functions allow for adding, displaying, and removing books and members, as well as displaying tables of data.
+
+DEPENDENCIES : 
+   -> Standard Libraries: <iostream>, <format>
+   -> Custom Header Files:
+        * "Classes Declaration File.hpp"
+        * "../Display_Basics.hpp"
+
+CLASS MEMBER FUNCTIONS (Library) : 
+   -> void AddBook(void):
+        * Prompts the director to input details for a new book, including title, author, and publishing year.
+        * Adds the book to the library's collection.
+
+   -> void AddMember(void):
+        * Prompts for the name of a new library member.
+        * Assigns a unique ID and adds the member to the members list.
+
+   -> void DisplayBooks(char Access_Type):
+        * Displays a table of all books in the library.
+        * The content of the table varies based on the access type ('M' for members, 'D' for directors).
+
+   -> void DisplayMembers(char Access_Type):
+        * Displays a table of all library members.
+        * Accessible only by directors.
+
+   -> void RemoveBook(char Access_Type):
+        * Displays available books and prompts for a book ID to remove.
+        * Ensures the book is available (not borrowed) before removal.
+
+   -> void RemoveMember(char Access_Type):
+        * Displays a list of members and prompts for a member ID to remove.
+        * Ensures the member has no pending book issues before removal.
+
+HELPER FUNCTIONS : 
+   -> void Display_Table(char Access_Type, int count, string type, vector<unique_ptr<Member>> &Members, vector<unique_ptr<Book>> &Books):
+        * function to display tables for books or members.
+        * Adjusts formatting based on the type of data and access level.*/
+
 #pragma once
 #include <iostream>
 #include "Classes Declaration File.hpp"
