@@ -11,6 +11,7 @@ int main(){
      //Checking if you are master or client
      Library L;
      char c = Login_Page(L.getMembers());
-     
+     if (c == 'M') Member_Menu ();
+     else if (c == 'D') Director_Menu ();
      return 0;
 }
