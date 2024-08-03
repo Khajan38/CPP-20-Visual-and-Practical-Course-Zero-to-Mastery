@@ -7,17 +7,21 @@ using namespace std;
 void Library :: AddBook(void){ //Adding New Books
      Header("LIBRARIAN'S HUB : ADD BOOK");
      Books.push_back(make_unique <Book>());
-     cout<<"\nEnter the Title of the Book : "; cin>>Books[0]->Title;
-     cout<<"Enter the Author Name : "; cin>>Books[0]->Author;
-     cout<<"Enter the Pusblishing Year : "; cin>>Books[0]->YearPublished;
+     cin.ignore(INT_MAX, '\n');
+     cout<<"\nEnter the Title of the Book : "; getline(cin,Books[book_count - 5844]->Title);
+     cout<<"Enter the Author Name : "; getline(cin, Books[book_count - 5844]->Author);
+     cout<<"Enter the Pusblishing Year : "; cin>>Books[book_count - 5844]->YearPublished;
+     cout<<endl<<padding("Inserted Book Details in Database...")<<"Inserted Book Details in Database..."<<endl;
      Bottom_Line_2(Exit_Parts);
 }
 
 void Library :: AddMember(void){ //Adding new Members
      Header("LIBRARIAN'S HUB : ADD MEMBER");
      Members.push_back(make_unique <Member>());
-     cout<<"\nEnter the Name of the Member : "; cin>>Members[0]->Name;
+     cin.ignore(INT_MAX, '\n');
+     cout<<"\nEnter the Name of the Member : "; getline(cin, Members[member_count - 1326]->Name);
      Members[0]->MemberId = member_count;
+     cout<<endl<<padding("Inserted Member Details in Database...")<<"Inserted Member Details in Database..."<<endl;
      Bottom_Line_2(Exit_Parts);
 }
 
@@ -40,8 +44,8 @@ void Display_Table(char Access_Type, int count, string type, vector <unique_ptr 
                Table_Row_padding = string(static_cast <int> ((consoleWidth - text.size())/2) , ' ');
           }
           else{
-               Table_line = string(94, '-'); 
-               text = format("|   {:<5}|   {:<35}|   {:<20}|   {:<17}|   {:<30}|", "ID", "TITLE", "AUTHOR", "YEAR PUBLISHED", "STATUS");
+               Table_line = string(116, '-'); 
+               text = format("|   {:<5}|   {:<35}|   {:<20}|   {:<17}|   {:<18}|", "ID", "TITLE", "AUTHOR", "YEAR PUBLISHED", "STATUS");
                Table_Row_padding = string(static_cast <int> ((consoleWidth - text.size())/2) , ' ');
           }
      }
@@ -49,19 +53,25 @@ void Display_Table(char Access_Type, int count, string type, vector <unique_ptr 
          <<Table_Row_padding<<text<<endl
          <<Table_Row_padding<<Table_line<<endl;
      if (type == "Members"){
-          for (int i = 0; i < count; i++)
+          for (int i = 0; i < count - 1325; i++)
                cout<<Table_Row_padding<<format("|   {:<5}|   {:<35}|", Members[i]->MemberId, Members[i]->Name)<<endl;
+          cout<<Table_Row_padding<<Table_line<<endl;
+          cout<<"\nTotal no. of Members : "<<Library::member_count - 1325<<endl;
      }
      else if (type == "Books"){
-          if (Access_Type == 'M')
-               for (int i = 0; i < count; i++)
+          if (Access_Type == 'M'){
+               for (int i = 0; i < count - 5843; i++)
                     if (Books[i]->Status == "Available")
-                         cout<<Table_Row_padding<<format("|   {:<5}|   {:<35}|   {:<20}|   {:<17}|", Books[i]->BookId, Books[i]->Title, Books[i]->Author, Books[i]->YearPublished)<<endl;
-          else 
-               cout<<Table_Row_padding<<format("|   {:<5}|   {:<35}|   {:<20}|   {:<17}|   {:<30}|", Books[i]->BookId, Books[i]->Title, Books[i]->Author, Books[i]->YearPublished, Books[i]->BorrowId == 0 ? Books[i]->Status : Books[i]->Status + " by " + to_string(Books[i]->BorrowId))<<endl;
+                         cout<<Table_Row_padding<<format("|   {:<5}|   {:<35}|   {:<20}|   {:<17}|", Books[i]->BookId, Books[i]->Title, Books[i]->Author, Books[i]->YearPublished)<<endl;      
+               cout<<Table_Row_padding<<Table_line<<endl;
           }
-          
-     cout<<Table_Row_padding<<Table_line<<endl;
+          else {
+               for (int i = 0; i < count - 5843; i++)
+                    cout<<Table_Row_padding<<format("|   {:<5}|   {:<35}|   {:<20}|   {:<17}|   {:<18}|", Books[i]->BookId, Books[i]->Title, Books[i]->Author, Books[i]->YearPublished, Books[i]->BorrowId == 0 ? Books[i]->Status : Books[i]->Status + " by " + to_string(Books[i]->BorrowId))<<endl;       
+               cout<<Table_Row_padding<<Table_line<<endl;
+               cout<<"\nTotal no. of Books : "<<Library::book_count - 5843<<endl;
+          }
+     }
 }
 
 void Library :: DisplayBooks(char Access_Type){
@@ -72,6 +82,44 @@ void Library :: DisplayBooks(char Access_Type){
 
 void Library :: DisplayMembers(char Access_Type){
      Header("LIBRARIAN'S HUB : DISPLAY MEMBERS");
-     Display_Table(Access_Type, book_count, "Members", Members, Books);
+     Display_Table(Access_Type, member_count, "Members", Members, Books);
+     Bottom_Line_2(Exit_Parts);
+}
+
+void Library :: RemoveBook (char Access_Type){
+     Header("LIBRARIAN'S HUB : REMOVE BOOK");
+     Display_Table('M', book_count, "Books", Members, Books);
+     int ReturnId;
+     cout<<"\nEnter BookId : "; cin>>ReturnId;
+     if (ReturnId <= Library::getbook_count()){
+          if ((Books[ReturnId - 5844]->Status) == "Available"){
+               cout<<endl<<padding("Deleted the Book...")<<"Deleted the Book..."<<endl;
+               vector <unique_ptr <Book>> :: iterator itr = Books.begin();
+               advance(itr, ReturnId - 5844);
+               Books.erase(itr);
+          }
+          else 
+               cout<<endl<<Books[ReturnId - 5844]->Status<<padding("Can't delete, as Book is Issued to " + to_string(Books[ReturnId - 5844]->BorrowId))<<"Can't delete, as Book is Issued to " + to_string(Books[ReturnId - 5844]->BorrowId)<<endl;
+     }
+     else cout<<endl<<padding("Enter valid Book ID...")<<"Enter valid Book ID..."<<endl;
+     Bottom_Line_2(Exit_Parts);
+}
+
+void Library :: RemoveMember (char Access_Type){
+     Header("LIBRARIAN'S HUB : REMOVE BOOK");
+     Display_Table('M', member_count, "Members", Members, Books);
+     int ReturnId;
+     cout<<"\nEnter MemberId : "; cin>>ReturnId;
+     if (ReturnId <= Library::getbook_count()){
+          if (Members[ReturnId - 1325]->getBookId().size() != 0){
+               cout<<endl<<padding("Deleted the Member...")<<"Deleted the Member..."<<endl;
+               vector <unique_ptr <Member>> :: iterator itr = Members.begin();
+               advance(itr, ReturnId - 1325);
+               Members.erase(itr);
+          }
+          else 
+               cout<<endl<<padding("Pending Issues, Can't delete Member...")<<"Pending Issues, Can't delete Member..."<<endl;
+     }
+     else cout<<endl<<padding("Enter valid Member ID...")<<"Enter valid Member ID..."<<endl;
      Bottom_Line_2(Exit_Parts);
 }

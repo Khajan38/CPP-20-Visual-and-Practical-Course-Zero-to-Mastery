@@ -28,21 +28,14 @@ class Library {
                else if (change_type == "Member++") member_count++;
                else member_count--;
           }
-          Library (){
-               Books.push_back(make_unique <Book> ("Rich Dad Poor Dad", "Robert Kiyosaki", 1997));
-               Books.push_back(make_unique <Book> ("Think and Grow Rich", "Napolean Hill", 1937));
-               Books.push_back(make_unique <Book> ("A Brief History of Time", "Stephen Hawking", 1988));
-               Books.push_back(make_unique <Book> ("Harry Potter", "J.K. Rowling", 1997));
-               Books.push_back(make_unique <Book> ("The Da Vinci Code", "Dan Brown", 2003));
-               Members.push_back(make_unique <Member> ("Alan Smith", 32));
-               Members.push_back(make_unique <Member> ("Barry Williams", 25));
-               Members.push_back(make_unique <Member> ("Clarke Jhonson", 28));
-          }
+          Library ();
           //Defined in Library Functions File.hpp
           void AddBook (void);
           void AddMember (void);
           void DisplayBooks (char Access_Type);
           void DisplayMembers (char Access_Type);
+          void RemoveBook (char Access_Type);
+          void RemoveMember (char Access_Type);
           vector <unique_ptr <Member>> &getMembers (void){return Members;}
           vector <unique_ptr <Book>> &getBooks (void){return Books;}
           static int getbook_count (void){return book_count;}
@@ -90,10 +83,11 @@ class Member{
           void BorrowBook(int BorrowId){BookId.push_back(BorrowId);}
           bool ReturnBook(int ReturnId){
                bool returned = false;
-               for (int Book : BookId) 
-                    if (Book = ReturnId){
-                         BookId.erase(static_cast <vector <int> :: iterator> (&Book));
-                         returned = true;
+               for (vector <int> :: iterator itr = BookId.begin(); itr != BookId.end(); itr++) 
+                    if (*itr == ReturnId){
+                         BookId.erase(itr);
+                         returned = true; 
+                         break;
                     }
                return returned;
           }
@@ -108,3 +102,30 @@ class Member{
 void Display_Table(char Access_Type, int count, string type, vector <unique_ptr <Member>> &Members, vector <unique_ptr <Book>> &Books);
 void Borrowed_Books(unique_ptr <Member> &Current_Member, vector <unique_ptr <Book>> &Books);
 void Membership_Card(unique_ptr <Member> &Current_Member);
+
+Library:: Library (){
+     Books.push_back(make_unique <Book> ("Rich Dad Poor Dad", "Robert Kiyosaki", 1997));
+     Books.push_back(make_unique <Book> ("Think and Grow Rich", "Napolean Hill", 1937));
+     Books.push_back(make_unique <Book> ("A Brief History of Time", "Stephen Hawking", 1988));
+     Books.push_back(make_unique <Book> ("Harry Potter", "J.K. Rowling", 1997));
+     Books.push_back(make_unique <Book> ("The Da Vinci Code", "Dan Brown", 2003));
+     Books.push_back(make_unique <Book> ("To Kill a Mockingbird", "Harper Lee", 1960));
+     Books.push_back(make_unique <Book> ("The Great Gatsby", "F. Scott Fitzgerald", 1925));
+     Books.push_back(make_unique <Book> ("1984", "George Orwell", 1949));
+     Books.push_back(make_unique <Book> ("Pride and Prejudice", "Jane Austen", 1813));
+     Books.push_back(make_unique <Book> ("The Catcher in the Rye", "J.D. Salinger", 1951));
+     Members.push_back(make_unique <Member> ("Alan Smith", 32));
+     Members.push_back(make_unique <Member> ("Barry Williams", 25));
+     Members.push_back(make_unique <Member> ("Cloe Jhonson", 28));
+     Members.push_back(make_unique <Member> ("Dwayne Jones", 23));
+     Members.push_back(make_unique <Member> ("Elle Rodriguez", 21));
+     Books[2]->Status = "Borrowed";
+     Books[2]->BorrowId = 1328;
+     Members[3]->BorrowBook(5846);
+     Books[4]->Status = "Borrowed";
+     Books[4]->BorrowId = 1328;
+     Members[3]->BorrowBook(5848);
+     Books[7]->Status = "Borrowed";
+     Books[7]->BorrowId = 1330;
+     Members[3]->BorrowBook(5851);
+}

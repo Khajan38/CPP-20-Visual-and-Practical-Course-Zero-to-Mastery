@@ -2,7 +2,7 @@
 #pragma once
 #include <iostream>
 #include <memory>
-#include "Function Header Files.hpp"
+#include "Member Functions File.hpp"
 #include "../Display_Basics.hpp"
 using namespace std;
 
@@ -21,8 +21,12 @@ char Login_Page (vector <unique_ptr <Member>> &Members){
           /*Password to open your Member Window is your Name with Initials matching in member list
           While for Director Window MemberId = 0, Name = {Your_Name} and Password is - "Librarian's Hub Director"*/
           for (auto & Mem : Members){
-               if (MemberId == (Check_Member == *Mem)){ 
-                    if (Password == Name){Bottom_Line(0); Current_MemberId = MemberId; return 'M';}
+               if (MemberId == (Check_Member == *Mem)){
+                    if (Password == Name){
+                         cout<<endl<<padding("Fetching Permissions")<<"Fetching Permissions";
+                         Bottom_Line(0); Current_MemberId = MemberId; 
+                         return 'M';
+                    }
                     else {
                          cout<<endl<<padding("Wrong Password Entered...")<<"Wrong Password Entered...";
                          cout<<endl; printline;
@@ -31,7 +35,10 @@ char Login_Page (vector <unique_ptr <Member>> &Members){
                          if (Password != "L") Exiting_Window(Exit_Parts);
                     }
                }
-               else if (MemberId == 0 && Password == "Librarian's Hub Director"){Bottom_Line(0); return 'D';}
+               else if (MemberId == 0 && Password == "Librarian's Hub Director"){
+                    cout<<endl<<padding("Fetching Permissions")<<"Fetching Permissions";
+                    Bottom_Line(0); return 'D';
+               }
           }
           if (Password != "L"){
                cout<<endl<<padding("Wrong Information Entered...")<<"Wrong Information Entered..."<<endl; printline;
@@ -44,8 +51,8 @@ char Login_Page (vector <unique_ptr <Member>> &Members){
 }
 
 void Member_Menu(char Access_Type, vector <unique_ptr <Member>> &Members, vector <unique_ptr <Book>> &Books){
-     vector <string> Menu_Items = {"LIBRARIAN'S HUB - MEMBER", "Borrow Books from Library", "Return Book to Library", "Display Borrowed Books", "See Membership Card", "Exit"};
-     while (true){   
+     while (true){
+          vector <string> Menu_Items = {"LIBRARIAN'S HUB - MEMBER", "Borrow Books from Library", "Return Book to Library", "Display Borrowed Books", "See Membership Card", "Exit"};
           char menu_choice = Main_Menu(Menu_Items);
           switch (menu_choice){
                case 'A':
@@ -56,6 +63,7 @@ void Member_Menu(char Access_Type, vector <unique_ptr <Member>> &Members, vector
                     break;
                case 'C':
                     Borrowed_Books(Members[Current_MemberId - 1326], Books);
+                    Bottom_Line_2(Exit_Parts);
                     break;
                case 'D':
                     Membership_Card(Members[Current_MemberId - 1326]);
@@ -69,4 +77,36 @@ void Member_Menu(char Access_Type, vector <unique_ptr <Member>> &Members, vector
           }
      }
 }
-void Director_Menu(void){}
+
+void Director_Menu(char Access_Type, Library &L, vector <unique_ptr <Member>> &Members, vector <unique_ptr <Book>> &Books){
+     while (true){
+          vector <string> Menu_Items = {"LIBRARIAN'S HUB - DIRECTOR", "Display all Books", "Display all Members", "Add New Book to the Library", "Delete Book from Library", "Add new Member to the Library", "Delete Member from Library", "Exit"};
+          char menu_choice = Main_Menu(Menu_Items);
+          switch (menu_choice){
+               case 'A':
+                    L.DisplayBooks(Access_Type);
+                    break;
+               case 'B':
+                    L.DisplayMembers(Access_Type);
+                    break;
+               case 'C':
+                    L.AddBook();
+                    break;
+               case 'D':
+                    L.RemoveBook(Access_Type);
+                    break;
+               case 'E':
+                    L.AddMember();
+                    break;
+               case 'F':
+                    L.RemoveMember(Access_Type);
+                    break;
+               case 'G':
+                    Exiting_Window(Exit_Parts);
+                    break;
+               default:
+                    cout<<padding("Enter a valid request...")<<"Enter a valid request...";
+                    sleep(2);
+          }
+     }
+}

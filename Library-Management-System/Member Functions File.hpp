@@ -3,6 +3,8 @@
 #include "Classes Declaration File.hpp"
 #include "Library Functions File.hpp"
 #include <format>
+#include <cctype>
+using namespace std;
 
 void Borrow_Book (char Access_Type, unique_ptr <Member> &Current_Member, vector <unique_ptr <Member>> &Members, vector <unique_ptr <Book>> &Books){
      Header("LIBRARIAN'S HUB : BORROW BOOK");
@@ -15,7 +17,7 @@ void Borrow_Book (char Access_Type, unique_ptr <Member> &Current_Member, vector 
                Books[BorrowId - 5844]->Status = "Borrowed";
                Books[BorrowId - 5844]->BorrowId = Current_Member->MemberId;
                Books[BorrowId - 5844]->printBookData();
-               cout<<endl<<padding("To the Member  : ");
+               cout<<endl<<padding("To the Member  : ")<<"To the Member  : "<<endl;
                Current_Member->printMemberData();
                Current_Member->BorrowBook(BorrowId);
           }
@@ -36,9 +38,8 @@ void Return_Book (unique_ptr <Member> &Current_Member, vector <unique_ptr <Book>
                Books[ReturnId - 5844]->Status = "Returned";
                Books[ReturnId - 5844]->BorrowId = 0;
                Books[ReturnId - 5844]->printBookData();
-               cout<<endl<<padding("From the Member  : ");
+               cout<<endl<<padding("From the Member  : ")<<"From the Member  : "<<endl;
                Current_Member->printMemberData();
-               Current_Member->BorrowBook(ReturnId);
           }
           else 
                cout<<endl<<padding("Book was not previously Issued by you...")<<"Book was not previously Issued by you..."<<endl;
@@ -64,30 +65,27 @@ void Borrowed_Books(unique_ptr <Member> &Current_Member, vector <unique_ptr <Boo
      for (int i : BookId)
           cout<<Table_Row_padding<<format("|   {:<5}|   {:<35}|   {:<20}|   {:<17}|", Books[i - 5844]->BookId, Books[i - 5844]->Title, Books[i - 5844]->Author, Books[i - 5844]->YearPublished)<<endl;
      cout<<Table_Row_padding<<Table_line<<endl;
-     Bottom_Line_2(Exit_Parts);
+     cout<<"\nTotal no. of Books Borrowed : "<<BookId.size()<<endl;
 }
 
 void Membership_Card(unique_ptr <Member> &Current_Member){
      Header("LIBRARIAN'S HUB : MEMBERSHIP CARD");
      cout<<endl<<padding("Fetching Card Details...")<<"Fetching Card Details..."<<endl<<endl;
-     string Table_line = string(50, '-'), gap(48, ' '), Table_Row_padding = string(static_cast <int> ((consoleWidth - Table_line.size())/2) , ' ');
-     string text1 = Current_Member->Name + "\t\t DIRECTOR", text2 = "Your Signature \t\t\t\t Director's Signature";
-     string sign_paddingWidth1(static_cast <int> ((48 - text1.size())/2) , ' '),  sign_paddingWidth2(static_cast <int> ((48 - text2.size())/2) , ' ');
+     string Table_line = string(60, '-'), gap(58, ' '), Table_Row_padding = string(static_cast <int> ((consoleWidth - Table_line.size())/2) , ' ');
      cout<<Table_Row_padding<<Table_line<<endl
          <<Table_Row_padding<<"|"<<gap<<"|"<<endl
-         <<Table_Row_padding<<"|"<<"\t       PREMIUM MEMBERSHIP CARD         \t"<<"|"<<endl
+         <<Table_Row_padding<<"|"<<format("{:<18}PREMIUM MEMBERSHIP CARD{:<17}", " ", " ")<<"|"<<endl
          <<Table_Row_padding<<"|"<<gap<<"|"<<endl
          <<Table_Row_padding<<"|"<<gap<<"|"<<endl
-         <<Table_Row_padding<<"|"<<format(" Name : {:<40}", Current_Member->Name)<<"|"<<endl
+         <<Table_Row_padding<<"|"<<format(" Name : {:<50}", Current_Member->Name)<<"|"<<endl
          <<Table_Row_padding<<"|"<<gap<<"|"<<endl
-         <<Table_Row_padding<<"|"<<format(" Age : {:<41}", Current_Member->age)<<"|"<<endl
+         <<Table_Row_padding<<"|"<<format(" Age : {:<51}", Current_Member->age)<<"|"<<endl
          <<Table_Row_padding<<"|"<<gap<<"|"<<endl
-         <<Table_Row_padding<<"|"<<format(" Member ID : {:<35}", Current_Member->MemberId)<<"|"<<endl
+         <<Table_Row_padding<<"|"<<format(" Member ID : {:<45}", Current_Member->MemberId)<<"|"<<endl
          <<Table_Row_padding<<"|"<<gap<<"|"<<endl
          <<Table_Row_padding<<"|"<<gap<<"|"<<endl
-         <<Table_Row_padding<<"|"<<gap<<"|"<<endl
-         <<Table_Row_padding<<"|"<<sign_paddingWidth1<<text1<<sign_paddingWidth1<<"|"<<endl
-         <<Table_Row_padding<<"|"<<sign_paddingWidth2<<text2<<sign_paddingWidth2<<"|"<<endl
+         <<Table_Row_padding<<"| "<<format("   {:<10}\t\t\t      DIRECTOR         |", (Current_Member->Name.length() > 10)? Current_Member->Name : (Current_Member->Name).substr(0,10))<<endl
+         <<Table_Row_padding<<"|    Your Signature \t\tDirector's Signature   |"<<endl
          <<Table_Row_padding<<"|"<<gap<<"|"<<endl
          <<Table_Row_padding<<Table_line<<endl;
      Bottom_Line_2(Exit_Parts);

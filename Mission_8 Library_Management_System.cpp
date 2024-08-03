@@ -12,6 +12,6 @@ int main(){
      Library L;
      char Access_Type = Login_Page(L.getMembers());
      if (Access_Type == 'M') Member_Menu (Access_Type, L.getMembers(), L.getBooks());
-     else if (Access_Type == 'D') cout<<"Directors"<<Library::getmember_count(); Director_Menu ();
+     else if (Access_Type == 'D') Director_Menu (Access_Type, L, L.getMembers(), L.getBooks());
      return 0;
 }
