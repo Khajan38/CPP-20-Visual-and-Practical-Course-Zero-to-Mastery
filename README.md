@@ -1,99 +1,107 @@
 # LIBRARY MANAGEMENT SYSTEM
-The Library Management System (LMS) : LIBRARIAN'S HUB is a comprehensive software solution designed to facilitate the management and operation of a library. It automates various processes involved in managing books, members, and transactions, making it easier for librarians and library staff to efficiently handle daily tasks. The system is intended for use in libraries of all sizes, from small community libraries to large academic and public institutions.
+Task Management System (TMS): TASK TRACKER is a comprehensive software solution designed to facilitate the management and operation of tasks. It automates various processes involved in managing tasks, users, and task statuses, making it easier for users to efficiently handle their workflow. The system is intended for use in organizations of all sizes, from small teams to large enterprises.
 
-<div style="text-align:center;">
-  <img src="Library-Management-System\Library.jpeg" alt="Library" height="250">
-</div>
+<img src="Task-Management-System\Task-Management-System.jpeg" alt="Task Tracker" height="250">
+
+__See me on LinkedIn :__ [Link to my LinkedIn ID](https://www.linkedin.com/in/khajanbhatt/)
 
 ## Files in the Project
 
-    --> Mission_8 Library_Management_System.cpp : 
-              Main Program code for Abstraction 
+    --> Mission_17 Task_Management_System.cpp : 
+                Main Program code for calling all other functions providing Abstraction
 
     --> Display_Basics.hpp : 
-              Resuable files for all missions
+                Resuable files for all missions
 
     --> Library-Management-System : 
-              Directory for Header Files
-          * Classes Declaration File.hpp : 
-              All classes like Book, Member and LIbrary are declared here
+                Directory for Header Files
           * Main Header File.hpp : 
-              All Main fucntions that call fucntions from other header files are made here
-          * Library Functions File.hpp : 
-              All functions defined for Library are given definition here --> for Director
-          * Member Fucntions File.hpp : 
-              All friend fucntions are defined here --> for Members
-          * Library.jpeg : 
+                Struct Task and Login_Window are defined here
+          * Function Header File.hpp : 
+                All Functions that are driving Main Menu are defined here
+          * Display_Functions : 
+                Directory for Display Functions File
+                * Display Header File.hpp :
+                      Display Menu and switch cases for Display Functions is defined here
+                * Display Function File.hpp :
+                      Display Functions methods are defined here
+          * Help_and_Feedback : 
+                Directory for Help_and_Feedback File -- Python Directed
+                * Help_and_Feedback.txt:
+                      All details of Project and help are written in this file.
+                * Help_and_Feedback.py :
+                      Help and Feedback taking methods are defined here
+          * Task Management Process.jpeg : 
               Image for Readme File
-          * Library-Management-System.jpeg : 
-              Image for Readme File to show its purpose
+          * Task-Management-System.jpeg : 
+              Image for Readme File to show its purpose           
 
-[Link to my LinkedIn ID](https://www.linkedin.com/in/khajanbhatt/)
-
-<div style="text-align:center;">
-  <img src="Library-Management-System\Library-Management-System.jpeg" alt="Library Management System Operations"  height="250">
-</div>
+<img src="Task-Management-System\Task Management Process.jpeg" alt="Task Management System Operations"  height="250">
 
 ## Features and Working:
 
-  The __Librarian's Hub__ opens when the user runs the file __"Mission_8 Library_Management_System.cpp"__. Designing Templates for all pages is done by using __"Display_Basics.hpp"__ which includes various function methods for Page Templates. These include-
-  
-  - Headings : __"Display_Basics.hpp -> Header()"__
-  - Word Padding to center : __"Display_Basics.hpp -> padding [] () {}"__
-  - Footers and Bottom Lines : __"Display_Basics.hpp -> Bottom_Line(), Bottom_Line_2()"__
-  - Main Menus : __"Display_Basics.hpp -> Main_Menu()"__
-  - Exit Window : __"Display_Basics.hpp -> Exiting_Window()"__
-  
-  Now the first page that opens is the __Login Page__ which is executed by __"Library-Management-System/Main Functions File.hpp -> Login_Page()"__. This checks weather you are an Member or a Director or just an intruder. Thus corresponding windows are called of which Intruders develops to the __"Display_Basics.hpp -> Exiting_Window()"__. However, for Member and Director corresponding Menus are opened.
+The __Task Tracker__ opens when the user runs the file __"Mission_17 Task_Management_System.cpp"__. Designing Templates for all pages is done by using __"Display_Basics.hpp"__ which includes various function methods for Page Templates. These include-
 
-   - For __Member__, we are headed to the __"Library-Management-System/Main Functions File.hpp -> Member_Menu()"__ which calls __"Display_Basics.hpp -> Main_Menu()"__ with Member Menu Items. These further gives choics for various operations.
+- Headings : __"Display_Basics.hpp -> Header()"__
+- Word Padding to center : __"Display_Basics.hpp -> padding [] () {}"__
+- Footers and Bottom Lines : __"Display_Basics.hpp -> Bottom_Line(), Bottom_Line_2()"__
+- Main Menus : __"Display_Basics.hpp -> Main_Menu()"__
+- Exit Window : __"Display_Basics.hpp -> Exiting_Window()"__
 
-       - For __Borrowing Book__, it calls __"Library-Management-System/Member Functions File.hpp -> Borrow_Book()"__ which calls necessary headers and displays a list of books available to borrow by help of __"Library-Management-System/Library Functions File.hpp -> Display_Table()"__. It asks user for Borrow Book ID and issues book if available and updates the Libarary Database.
+Now the first page that opens is the __Login Window__ which is executed by __"Task-Management-System\Main Header File.hpp -> Login_Window()"__. This checks weather you are an Member or just an intruder. When entered the correct Password = "Task_Tracker", it procedes further in the program to show up the __Main Menu__ which si called by file __"Display_Basics.hpp -> Main_Menu()"__ with Menu Items. These further gives choices for various operations. 
 
-       - For __Retuning Book__, it calls __"Library-Management-System/Member Functions File.hpp -> Return_Book()"__ which asks user for Return Book ID and marks book returned in the Library Database after matching all conditions.
+- For __Adding New Task__, it calls __"Task-Management-System\Function Header File.hpp -> Add_Task()"__ which calls necessary headers and then asks user for Task Details. Then, it updates the Tasks Lists by addding new task to correct Position and updates the Task ID in Task Map by calling __"Task-Management-System\Function Header File.hpp -> mapping_setter()"__. Finally Inseration message pops up, if all things are updations are done.
 
-       - For __Dispalying all Borrowed Books__, it calls __"Library-Management-System/Member Functions File.hpp -> Borrowed_Books()"__ which showcases a table showing list of all borrowed books list, if issued by Library.
+- For __Arrangig Active Tasks__, it calls __"Task-Management-System\Function Header File.hpp -> Arrange_Active_Tasks()"__ which asks user for Task Arrangememt Fashion. Then, it updates the Tasks Lists and TaskMap by creating new Map and Lists and arranging Tasks and IDs in them and finally replacing old structures with new.
 
-       - For __Checking Membership Card__, it calls __"Library-Management-System/Member Functions File.hpp -> Membership_Card()"__ which showcases a card showing all details of Member verified by the Library Director with correct paddings.
+- For __Mark Task as Completed__, it calls __"Task-Management-System\Function Header File.hpp -> Marking_Completed()"__ which asks user for Completed Task ID and makes Completed Task move it its new position with new ID with is done by calling __"Task-Management-System\Function Header File.hpp -> mapping_setter()"__. 
 
-       - For __Exiting from the Program__, it calls the __"Display_Basics.hpp -> Exiting_Window()"__ which lets user to the Exit and Thank You Window and clears the prompt screen then.
+- For __Dispalying Task Information__, it calls __"Library-Management-System/Member Functions File.hpp -> Borrowed_Books()"__ which showcases a table showing list of all borrowed books list, if issued by Library.
 
+- For __Deleting a Task__, it calls __"Task-Management-System\Display_Functions\Display Header File.hpp -> Display_Menu()"__ which is a user driven Menu for various Display Tasks Types. It asks for choice and calls for __"Task-Management-System\Display_Functions\Display Header File.hpp -> Display_Operations()__. This functions reads the choice as parameter and calls appropriate fucntion according to the User Choices -
 
-   - For __Director__, we are headed to the __"Library-Management-System/Main Functions File.hpp -> Director_Menu()"__ which calls __"Display_Basics.hpp -> Main_Menu()"__ with Director Menu Items. These further gives choics for various operations.
+    - For __Displaying Specific Task Informations__, it calls __"Task-Management-System\Display_Functions\Display Function File.hpp -> Display_Specific_Task()"__ which ask for Task ID and shows Title, Description and Current status of the particular Task ID.  
 
-       - For __Display all Books__, it calls __"Library-Management-System/Library Functions File.hpp -> Library :: DisplayBooks()"__ which calls necessary headers and displays a list of all Books present in the Library by help of __"Library-Management-System/Library Functions File.hpp -> Display_Table()"__. It also prompts total no. of books available and shows which book is borrowed and by which member.
+    - For __Displaying All Tasks Informations__, it calls __"Task-Management-System\Display_Functions\Display Function File.hpp -> Display_All_Tasks()"__ which shows the list of Active tasks, if any, by using __"Task-Management-System\Display_Functions\Display Function File.hpp -> Active_Task_List()"__ and of Completed Tasks if any, by __"Task-Management-System\Display_Functions\Display Function File.hpp -> Completed_Task_List()"__.
 
-      - For __Display all Members__, it calls __"Library-Management-System/Library Functions File.hpp -> Library :: DisplayMembers()"__ which calls necessary headers and displays a list of all Members available to borrow by help of __"Library-Management-System/Library Functions File.hpp -> Display_Table()"__. It also prompts total no. of members.
+    - For __Displaying Active Tasks Informations__, it calls __"Task-Management-System\Display_Functions\Display Function File.hpp -> Display_Active_Tasks()"__ which shows the list of Active tasks, if any, by using __"Task-Management-System\Display_Functions\Display Function File.hpp -> Active_Task_List()"__.
 
-       - For __Adding New Book__, it calls __"Library-Management-System/Library Functions File.hpp -> AddBook()"__ which asks director for New Book Information and add + update it to the Books Database.
+    - For __Displaying All Tasks Informations__, it calls __"Task-Management-System\Display_Functions\Display Function File.hpp -> Display_Completed_Tasks()"__ which shows the list of Completed Tasks if any, by __"Task-Management-System\Display_Functions\Display Function File.hpp -> Completed_Task_List()"__.
 
-       - For __Removing Existing Book__, it calls __"Library-Management-System/Library Functions File.hpp -> RemoveBook()"__ which calls necessary headers and displays a list of books available to remove by help of __"Library-Management-System/Library Functions File.hpp -> Display_Table()"__. It asks director for Delete Book ID and removes book if not issued by any member of the Library and updates it to the Book Database.
+- For __Getting Help and Giving Feedbacks__, it calls __"Task-Management-System\Help_and_Feedback\Help_and_Feedback.py"__ by system command hence integrating Python with C++. This now asks user weather he needs help or wanted to give feedbacks and hence corresponding to choice calls - 
 
-       - For __Adding New Member__, it calls __"Library-Management-System/Library Functions File.hpp -> AddMember()"__ which asks director for New Member Information and add + update it to the Members Database.
+    - For __Getting Help__, it calls __"Task-Management-System\Help_and_Feedback\Help_and_Feedback.py -> HELP()"__ which is a Text File Handling program : __"Task-Management-System\Help_and_Feedback\Help_and_Feedback.txt"__ which contains documentations and resources for __Task Tracker__.
 
-       - For __Removing Existing Memebr__, it calls __"Library-Management-System/Library Functions File.hpp -> RemoveMember()"__ which calls necessary headers and displays a list of members available to remove by help of __"Library-Management-System/Library Functions File.hpp -> Display_Table()"__. It asks director for Delete Member ID and removes member if he/she has no issues in the Library and updates it to the Member Database.
+    - For __Giving Feedbacks__, it calls __"Task-Management-System\Help_and_Feedback\Help_and_Feedback.py -> FEEDBACK()"__, it displays instructions for Feedback and user can proceed to give Feedback to help improve the __Task Tracker__ and overcome its shortcomings.
 
-       - For __Exiting from the Program__, it calls the __"Display_Basics.hpp -> Exiting_Window()"__ which lets user to the Exit and Thank You Window and clears the prompt screen then.
+- For __Exiting from the Program__, it calls the __"Display_Basics.hpp -> Exiting_Window()"__ which lets user to the Exit and Thank You Window and clears the prompt screen then.
 
 ### Flow of Operations:
-    Main Program : "Mission_8 Library_Management_System.cpp" 
+    Main Program : "Mission_17 Task_Management_System.cpp" 
 
-    Login Page : Library-Management-System/Main Functions File.hpp -> Login_Page()
+    Login Page : Task-Management-System\Main Header File.hpp -> Login_Window()
 
-    As Member : Library-Management-System/Main Functions File.hpp -> Member_Menu()
-          Main_Menu : Display_Basics.hpp -> Main_Menu()
-          Borrowing Book : Library-Management-System/Member Functions File.hpp -> Borrow_Book()
-          Returning Book : Library-Management-System/Member Functions File.hpp -> Return_Book()
-          Display Borrowed Books : Library-Management-System/Member Functions File.hpp -> Borrowed_Books()
-          Display Memebership Card : Library-Management-System/Member Functions File.hpp -> Membership_Card()
-          Exiting : Display_Basics.hpp -> Exiting_Window()
+    Main_Menu : Display_Basics.hpp -> Main_Menu()
 
-    As Director : Library-Management-System/Main Functions File.hpp -> Director_Menu() 
-          Main_Menu : Display_Basics.hpp -> Main_Menu()
-          Display all Books : Library-Management-System/Library Functions File.hpp -> DisplayBooks()
-          Display all Memebers : Library-Management-System/Library Functions File.hpp -> DisplayMembers()
-          Add New Book : Library-Management-System/Library Functions File.hpp -> AddBook()
-          Remove Existing Book : Library-Management-System/Library Functions File.hpp -> RemoveBook()
-          Add new Member : Library-Management-System/Library Functions File.hpp -> AddMember()
-          Add new Member : Library-Management-System/Library Functions File.hpp -> RemoveMember()
-          Exiting : Display_Basics.hpp -> Exiting_Window();
+        Add New Task : Task-Management-System\Function Header File.hpp -> Add_Task()
+
+        Arrange Active Tasks : Task-Management-System\Function Header File.hpp -> Arrange_Active_Tasks()
+
+        Mark Task as Completed : Task-Management-System\Function Header File.hpp -> Marking_Completed()
+
+        Display Tasks Windows : 
+            Task-Management-System\Display_Functions\Display Header File.hpp -> Display_Menu()
+            Task-Management-System\Display_Functions\Display Header File.hpp -> Display_Operations()
+                Task-Management-System\Display_Functions\Display Function File.hpp -> Display_Specific_Task()
+                Task-Management-System\Display_Functions\Display Function File.hpp -> Display_All_Tasks()
+                Task-Management-System\Display_Functions\Display Function File.hpp -> Display_Active_Tasks()
+                Task-Management-System\Display_Functions\Display Function File.hpp -> Display_Completed_Tasks()
+
+        Delete a Task : Task-Management-System\Function Header File.hpp -> Delete_Task()
+
+        Get Help and Give Feedbacks : 
+            Task-Management-System\Help_and_Feedback\Help_and_Feedback.py
+                Task-Management-System\Help_and_Feedback\Help_and_Feedback.py -> HELP()
+                Task-Management-System\Help_and_Feedback\Help_and_Feedback.py -> FEEDBACK()
+
+        Exiting : Display_Basics.hpp -> Exiting_Window()
