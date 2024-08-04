@@ -1,9 +1,9 @@
 # LIBRARY MANAGEMENT SYSTEM
 The Library Management System (LMS) : LIBRARIAN'S HUB is a comprehensive software solution designed to facilitate the management and operation of a library. It automates various processes involved in managing books, members, and transactions, making it easier for librarians and library staff to efficiently handle daily tasks. The system is intended for use in libraries of all sizes, from small community libraries to large academic and public institutions.
 
-<div style="text-align:center;">
-  <img src="Library-Management-System\Library.jpeg" alt="Library" height="250">
-</div>
+<img src="Library-Management-System\Library.jpeg" alt="Library" height="250">
+
+__See me on LinkedIn__ : [Link to my LinkedIn ID](https://www.linkedin.com/in/khajanbhatt/)
 
 ## Files in the Project
 
@@ -28,11 +28,7 @@ The Library Management System (LMS) : LIBRARIAN'S HUB is a comprehensive softwar
           * Library-Management-System.jpeg : 
               Image for Readme File to show its purpose
 
-[Link to my LinkedIn ID](https://www.linkedin.com/in/khajanbhatt/)
-
-<div style="text-align:center;">
-  <img src="Library-Management-System\Library-Management-System.jpeg" alt="Library Management System Operations"  height="250">
-</div>
+<img src="Library-Management-System\Library-Management-System.jpeg" alt="Library Management System Operations"  height="250">
 
 ## Features and Working:
 
@@ -46,7 +42,7 @@ The Library Management System (LMS) : LIBRARIAN'S HUB is a comprehensive softwar
   
   Now the first page that opens is the __Login Page__ which is executed by __"Library-Management-System/Main Functions File.hpp -> Login_Page()"__. This checks weather you are an Member or a Director or just an intruder. Thus corresponding windows are called of which Intruders develops to the __"Display_Basics.hpp -> Exiting_Window()"__. However, for Member and Director corresponding Menus are opened.
 
-   - For __Member__, we are headed to the __"Library-Management-System/Main Functions File.hpp -> Member_Menu()"__ which calls __"Display_Basics.hpp -> Main_Menu()"__ with Member Menu Items. These further gives choics for various operations.
+   - For __Member__, we are headed to the __"Library-Management-System/Main Functions File.hpp -> Member_Menu()"__ which calls __"Display_Basics.hpp -> Main_Menu()"__ with Member Menu Items. These further gives choices for various operations.
 
        - For __Borrowing Book__, it calls __"Library-Management-System/Member Functions File.hpp -> Borrow_Book()"__ which calls necessary headers and displays a list of books available to borrow by help of __"Library-Management-System/Library Functions File.hpp -> Display_Table()"__. It asks user for Borrow Book ID and issues book if available and updates the Libarary Database.
 
@@ -59,7 +55,7 @@ The Library Management System (LMS) : LIBRARIAN'S HUB is a comprehensive softwar
        - For __Exiting from the Program__, it calls the __"Display_Basics.hpp -> Exiting_Window()"__ which lets user to the Exit and Thank You Window and clears the prompt screen then.
 
 
-   - For __Director__, we are headed to the __"Library-Management-System/Main Functions File.hpp -> Director_Menu()"__ which calls __"Display_Basics.hpp -> Main_Menu()"__ with Director Menu Items. These further gives choics for various operations.
+   - For __Director__, we are headed to the __"Library-Management-System/Main Functions File.hpp -> Director_Menu()"__ which calls __"Display_Basics.hpp -> Main_Menu()"__ with Director Menu Items. These further gives choices for various operations.
 
        - For __Display all Books__, it calls __"Library-Management-System/Library Functions File.hpp -> Library :: DisplayBooks()"__ which calls necessary headers and displays a list of all Books present in the Library by help of __"Library-Management-System/Library Functions File.hpp -> Display_Table()"__. It also prompts total no. of books available and shows which book is borrowed and by which member.
 
@@ -96,4 +92,4 @@ The Library Management System (LMS) : LIBRARIAN'S HUB is a comprehensive softwar
           Remove Existing Book : Library-Management-System/Library Functions File.hpp -> RemoveBook()
           Add new Member : Library-Management-System/Library Functions File.hpp -> AddMember()
           Add new Member : Library-Management-System/Library Functions File.hpp -> RemoveMember()
-          Exiting : Display_Basics.hpp -> Exiting_Window();
+          Exiting : Display_Basics.hpp -> Exiting_Window()
