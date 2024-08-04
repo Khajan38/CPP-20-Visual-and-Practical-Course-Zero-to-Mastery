@@ -1,5 +1,56 @@
 //Additional Missions : Contact Diary
 
+/*OVERVIEW : 
+The Contact Diary program allows users to manage a list of contacts, including adding, displaying, searching, deleting, and inserting new contacts. The program uses a structure hello to store contact information, including the name and phone number. The list of contacts is maintained in an array named contact.
+
+DEPENDENCIES :
+   -> Standard Library Headers: <stdio.h>, <stdlib.h>
+   -> Project-Specific Headers:
+        * "Display_Basics.hpp"
+
+GLOBAL VARIABLES :
+   -> n: The number of contacts currently in the diary.
+   -> contact: An array of hello structures to store contact details.
+   -> Project-Specific Headers:
+        * "Task-Management-System\Main Header File.hpp"
+FUNCTIONS :
+   -> void display(void) :
+        * Displays the list of contacts.
+        * Iterates over the contact array and prints each contact's name and phone number.
+
+   -> void search(void) :
+        * Searches for a contact by phone number.
+        * Prompts the user to enter a phone number and checks if it exists in the contact array.
+
+   -> void phn_delete(void) :
+        * Deletes a contact by phone number.
+        * Prompts the user to enter a phone number and removes the corresponding contact from the array if found.
+
+   -> void input(void) :
+        * Takes input for the initial set of contacts.
+        * Prompts the user to enter the number of contacts and their details.
+
+   -> void insert(void) :
+        * Inserts a new contact into the diary.
+        * Prompts the user to enter the new contact's name and phone number, adding it to the contact array.
+
+   -> void out(void) :
+        * Displays an exit message using the Exiting_Window function from the Display_Basics.hpp file.
+
+WORKING :
+   -> The main() function initializes the contact list by calling the input() function.
+   -> It displays the contact list using the display() function.
+   -> A loop provides a menu for the user to perform various operations (insertion, display, search, delete, exit).
+   -> The user can repeat the operations until they choose to exit.
+
+USEAGE : The program can be run in a console. It provides a simple text-based interface for managing a small list of contacts. The menu options are:
+     A: Insert a new contact.
+     B: Display all contacts.
+     C: Search for a contact by phone number.
+     D: Delete a contact by phone number.
+     E: Exit the contact diary.
+The user is prompted to enter their choice, and the corresponding function is executed. The program loops back to the main menu unless the user chooses to exit.*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "Display_Basics.hpp"

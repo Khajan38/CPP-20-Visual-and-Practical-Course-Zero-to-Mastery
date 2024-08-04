@@ -1,4 +1,52 @@
-//Mission 7 : Inventory System
+// Mission 7: Inventory System
+
+/* OVERVIEW:
+This C++ program simulates a basic inventory management system. It allows users to add products to the inventory, display the current inventory, and sell products from the inventory. The program uses dynamic memory management with smart pointers to handle product details.
+
+DEPENDENCIES:
+   -> Standard Libraries: <iostream>, <memory>, <format>
+   -> Custom Header Files:
+        * "Display_Basics.hpp"
+
+VARIABLES:
+   -> int ProductCount {0}
+        * Keeps track of the number of products in the inventory.
+   -> array <string, 2> Exit_Parts {"INVENTORY SYSTEM", "Inventory System"}
+        * Used for the exit screen display.
+
+FUNCTIONS:
+   -> void AddProduct(vector <unique_ptr <string>> &Names, vector <unique_ptr <double>> &Prices, vector <unique_ptr <int>> &Quantities):
+        * Prompts the user to enter product details (name, price, and quantity).
+        * Creates unique pointers for each product detail and adds them to their respective vectors.
+        * Increments the `ProductCount`.
+
+   -> void DisplayInventory(vector <unique_ptr <string>> &Names, vector <unique_ptr <double>> &Prices, vector <unique_ptr <int>> &Quantities):
+        * Displays the current inventory in a tabular format.
+        * Shows product ID, name, price, and quantity.
+        * Handles cases where the inventory is empty.
+
+   -> void SellProduct(vector <unique_ptr <string>> &Names, vector <unique_ptr <double>> &Prices, vector <unique_ptr <int>> &Quantities):
+        * Displays the inventory and prompts the user to select a product ID to sell.
+        * Checks if the selected quantity is valid and available.
+        * Updates the quantity of the sold product and removes it from the inventory if the quantity reaches zero.
+
+WORKING :
+   -> Main loop that displays the menu and handles user choices.
+   -> Calls `AddProduct`, `DisplayInventory`, or `SellProduct` based on the user's choice.
+   -> Provides options to exit the program.
+
+TEMPLATES FOR ALL PAGES : Provided by "Display_Basics.hpp" which includes various function methods for Page Templates. These include:
+   -> Headings: "Display_Basics.hpp -> Header()"
+   -> Word Padding to center: "Display_Basics.hpp -> padding [] () {}"
+   -> Footers and Bottom Lines: "Display_Basics.hpp -> Bottom_Line(), Bottom_Line_2()"
+   -> Main Menus: "Display_Basics.hpp -> Main_Menu()"
+   -> Exit Window: "Display_Basics.hpp -> Exiting_Window()"
+
+USAGE : The user interacts with the program through a menu to:
+   1. Add Product to Inventory: Input details of a new product to add to the inventory.
+   2. Display Inventory Items: View the current list of products in the inventory.
+   3. Sell Inventory Products: Sell a specified quantity of a product and update the inventory.
+   4. Exit: Exit the program.*/
 
 #include <iostream>
 #include <memory>

@@ -1,9 +1,38 @@
+//Function Header File.hpp
+
+/*OVERVIEW : 
+This file contains the core functions for managing tasks within the Task Management System. It provides functionalities for adding tasks, marking tasks as completed, arranging active tasks, and deleting tasks. The file also manages the mapping of tasks to their IDs and ensures the integrity of the task list.
+
+DEPENDENCIES : 
+   -> Standard Libraries: <climits>, <list>, <map>
+   -> Custom Header Files:
+        * "Main Header File.hpp"
+
+FUNCTIONS : 
+   -> int mapping_setter(list<Task> &Tasks, map<int, Task *> &TaskMap, Task *New_Task)
+        * Description: Updates the mapping between task IDs and task objects in the TaskMap. This function ensures that the map reflects the current state of the task list.
+        * Returns: ID of the new task.
+
+   -> int Add_Task(unique_ptr<string> Name, unique_ptr<string> Description, list<Task> &Tasks, list<Task>::iterator &Completed_Id, map<int, Task *> &TaskMap)
+        * Description: Adds a new task to the system, updates the task list and the task map, and assigns an ID to the new task.
+        * Returns: ID of the newly added task.
+
+   -> int Marking_Completed(const int *taskId, map<int, Task *> &TaskMap, list<Task> &Tasks, list<Task>::iterator &Completed_Id)
+        * Description: Marks a task as completed, updates the task's status in the list and map, and reorders the tasks.
+        * Returns: new ID assigned to the completed task or INT_MAX if the task ID is invalid.
+
+   -> void Arrange_Active_Tasks(string &Priority, list<Task> &Tasks, map<int, Task *> &TaskMap, list<Task>::iterator &Completed_Id)
+        * Description: Rearranges active tasks based on the given priority string. It updates both the task list and the task map accordingly.
+
+   -> void Delete_Task(int &taskId, list<Task> &Tasks, map<int, Task *> &TaskMap, list<Task>::iterator &Completed_Id)
+        * Description: Deletes a task from the system based on the provided task ID. It updates the task list and task map to reflect the deletion.
+
+USAGE : This header file should be included where task management functionalities are required in the Task Management System. It ensures the proper handling and manipulation of tasks within the system, maintaining data consistency and integrity.*/
+
 #pragma once
 
 #include "Main Header File.hpp"
 #include <climits>
-#include <vector>
-#include <array>
 #include <list>
 #include <map>
 
@@ -28,7 +57,7 @@ int mapping_setter (list <Task> &Tasks, map <int, Task *> &TaskMap, Task * New_T
 
 int Add_Task (unique_ptr <string> Name, unique_ptr <string> Description, list <Task> &Tasks, list <Task> :: iterator &Completed_Id, map <int, Task *> &TaskMap){
      unique_ptr <Task> New_Task {make_unique <Task> (*Name, *Description, false)};
-     cout<<"\n\n\t\t\t\t\t           Adding the Tasks List";
+     cout<<endl<<endl<<padding("Adding to Tasks List")<<"Adding to Tasks List";
      Completed_Id = Tasks.insert(Completed_Id, *New_Task);
      cout<<" and Tasks ID..."<<endl;
      TaskMap[Task::count_Tasks] = &(*Completed_Id);
@@ -40,7 +69,7 @@ int Add_Task (unique_ptr <string> Name, unique_ptr <string> Description, list <T
 }
  
 int Marking_Completed (const int * taskId, map <int, Task *> &TaskMap, list <Task> &Tasks, list <Task> :: iterator &Completed_Id){
-     cout<<"\n\t\t\t\t\t        Updating the Tasks List";
+     cout<<endl<<padding("Updating the Tasks List")<<"Updating the Tasks List";
      bool found = false;
      if (*taskId > 0 && *taskId <= Task::count_Tasks){
           for (const auto &mapPair : TaskMap)
@@ -94,7 +123,7 @@ void Arrange_Active_Tasks(string &Priority, list <Task> &Tasks, map <int, Task *
 }
 
 void Delete_Task (int &taskId, list <Task> &Tasks, map <int, Task *> &TaskMap, list <Task> :: iterator &Completed_Id){
-     cout<<"\n\t\t\t\t\t         Fetching the Tasks Details...";
+     cout<<endl<<padding("Fetching the Tasks Details...")<<"Fetching the Tasks Details...";
      if (taskId <= 0 || taskId > Task::count_Tasks){
           cout<<"\n\nTask with ID : "<<taskId<<" not found in Tasks"<<endl;
           return;

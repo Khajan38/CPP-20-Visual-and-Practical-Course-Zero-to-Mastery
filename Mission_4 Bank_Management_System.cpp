@@ -1,5 +1,49 @@
 //Mission 4 : Bank Management System
 
+/*OVERVIEW : 
+This C++ program simulates a simple bank management system where users can deposit money, withdraw money, check their bank balance, or exit the system. It manages a single account with an initial balance and provides basic banking operations.
+
+DEPENDENCIES : 
+   -> Standard Libraries: <iostream>
+   -> Custom Header Files:
+        * "Display_Basics.hpp"
+
+VARIABLES:
+   -> float Balance {1000.0}
+   -> array <string, 2> Exit_Parts {"BANK MANAGER", "Bank Management System"}
+   -> vector <string> Menu {"BANK MANAGER : MAIN MENU", "Deposit Money", "Withdraw Money", "Check Bank Balance", "Exit"};
+
+TEMPLATES FOR ALL PAGES : Provided by "Display_Basics.hpp" which includes various function methods for Page Templates. These include-
+  -> Headings : "Display_Basics.hpp -> Header()"
+  -> Word Padding to center : "Display_Basics.hpp -> padding [] () {}"
+  -> Footers and Bottom Lines : "Display_Basics.hpp -> Bottom_Line(), Bottom_Line_2()"
+  -> Main Menus : "Display_Basics.hpp -> Main_Menu()"
+  -> Exit Window : "Display_Basics.hpp -> Exiting_Window()"
+
+MENU CHOICES :
+   -> Deposit Money (Case 'A') :
+        * Displays the deposit window and prompts for an amount to deposit.
+        * Validates and processes the deposit, updating the balance accordingly.
+        * Displays success or error messages based on input.
+
+   -> Withdraw Money (Case 'B') :
+        * Displays the withdrawal window and prompts for an amount to withdraw.
+        * Validates the withdrawal amount and checks for sufficient balance.
+        * Updates the balance and displays appropriate messages.
+
+   -> Check Balance (Case 'C') :
+        * Displays the current balance of the account.
+        * Exit (Case 'D'):
+
+   -> Calls Exiting_Window(Exit_Parts) : 
+        * to handle exit operations and terminate the program.
+
+USEAGE : The user interacts with the program through a menu to:
+   1. Deposit Money: Input the amount to deposit into the account.
+   2. Withdraw Money: Input the amount to withdraw from the account, ensuring sufficient balance.
+   3. Check Bank Balance: View the current balance of the account.
+   4. Exit: Exit the program.*/
+
 #include <iostream>
 #include "Display_Basics.hpp"
 using namespace std;

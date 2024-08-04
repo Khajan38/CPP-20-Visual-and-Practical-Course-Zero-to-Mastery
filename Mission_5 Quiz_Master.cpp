@@ -1,5 +1,47 @@
 //Mission 5 : Quiz Master -> A Quiz Game
 
+/* OVERVIEW :
+This C++ program is a quiz game where users answer multiple-choice questions to earn points. It provides a set of questions with multiple-choice answers and evaluates the user's responses. The game continues until the user decides to exit or restart.
+
+DEPENDENCIES :
+   -> Standard Libraries: <iostream>, <string>
+   -> Custom Header Files:
+        * "Display_Basics.hpp"
+
+VARIABLES :
+   -> vector <string> Questions:
+        * Contains a list of five quiz questions.
+   -> vector <string> Answers:
+        * Contains the correct answers to the quiz questions.
+   -> array <vector <string>, 5> Choices:
+        * Contains possible answers for each question.
+
+FUNCTIONS :
+   -> char Mission5_Bottom_Line(int page):
+        * Displays different prompts based on the `page` argument.
+        * Handles user input for restarting the quiz, continuing to the next question, or viewing results.
+        * Returns a character to indicate the user's choice.
+
+WORKING :
+   -> Main game loop where the quiz starts.
+   -> Displays questions and multiple-choice options.
+   -> Evaluates user answers and updates the score.
+   -> Handles options to restart or exit the game.
+   -> Displays the final score and prompts for restart or exit.
+
+TEMPLATES FOR ALL PAGES : Provided by "Display_Basics.hpp" which includes various function methods for Page Templates. These include:
+   -> Headings: "Display_Basics.hpp -> Header()"
+   -> Word Padding to center: "Display_Basics.hpp -> padding [] () {}"
+   -> Footers and Bottom Lines: "Display_Basics.hpp -> Bottom_Line(), Bottom_Line_2()"
+   -> Main Menus: "Display_Basics.hpp -> Main_Menu()"
+   -> Exit Window: "Display_Basics.hpp -> Exiting_Window()"
+   -> Entrance Window: "Display_Basics.hpp -> Entrance_Window()"
+
+USAGE : The user interacts with the program through a series of quiz questions:
+   1. Answer Questions: Choose from multiple-choice answers for each question.
+   2. View Results: After answering all questions, view the total score.
+   3. Restart or Exit: Choose to restart the quiz or exit the program.*/
+
 #include <iostream>
 #include "Display_Basics.hpp"
 #include <string>

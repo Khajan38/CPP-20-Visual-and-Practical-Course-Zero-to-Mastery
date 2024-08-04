@@ -1,4 +1,44 @@
-//Mission 6 : Encryptify -> Encryptor - Decryptor 
+// Mission 6: Encryptify -> Encryptor - Decryptor
+
+/* OVERVIEW :
+This C++ program implements a simple encryption and decryption system. It allows users to encrypt and decrypt messages using predefined keys. The program provides a menu-driven interface for these operations and validates the input to ensure proper functionality.
+
+DEPENDENCIES :
+   -> Standard Libraries: <iostream>, <string>
+   -> Custom Header Files:
+        * "Display_Basics.hpp"
+
+VARIABLES :
+   -> string DecryptionKey:
+        * Contains the set of characters used for decryption.
+   -> string EncryptionKey:
+        * Contains the corresponding encrypted characters used for encryption.
+
+FUNCTIONS :
+   -> string Encrypt_Message(string Encrypted_Message):
+        * Encrypts the input message by replacing characters with their corresponding characters in the `EncryptionKey`.
+        * If an invalid character is found, returns "Enter valid Message...".
+        
+   -> string Decrypt_Message(string Decrypted_Message):
+        * Decrypts the input message by mapping characters from the `EncryptionKey` to the `DecryptionKey`.
+        * If an invalid character is found, returns "Enter valid Message...".
+
+WORKING :
+   -> Main loop where users can choose to encrypt a message, decrypt a message, or exit.
+   -> Provides prompts and handles user input for the chosen operation.
+   -> Displays results of encryption and decryption processes.
+
+TEMPLATES FOR ALL PAGES : Provided by "Display_Basics.hpp" which includes various function methods for Page Templates. These include:
+   -> Headings: "Display_Basics.hpp -> Header()"
+   -> Word Padding to center: "Display_Basics.hpp -> padding [] () {}"
+   -> Footers and Bottom Lines: "Display_Basics.hpp -> Bottom_Line(), Bottom_Line_2()"
+   -> Main Menus: "Display_Basics.hpp -> Main_Menu()"
+   -> Exit Window: "Display_Basics.hpp -> Exiting_Window()"
+
+USAGE : The user interacts with the program through a menu to:
+   1. Encrypt a Message: Input a message to be encrypted. The message will be transformed using the `EncryptionKey`.
+   2. Decrypt a Message: Input an encrypted message to be decrypted. The message will be transformed back using the `DecryptionKey`.
+   3. Exit: Exit the program.*/
 
 #include <iostream>
 #include "Display_Basics.hpp"
