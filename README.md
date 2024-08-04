@@ -4,7 +4,9 @@ This repository holds the various projects made by me during the completion of m
     Platform: Udemy
     Course: Complete C++20 Visual and Practical Course: Zero to Mastery  
     Lecturer: Rehmat M., Video Game Developer (Unreal Engine & C++)  
-[Link to the course](https://www.udemy.com/course/mastering-cpp20-programming-a-visual-and-practical-approach/learn/)
+__Find this course at :__ [Udemy Courses](https://www.udemy.com/course/mastering-cpp20-programming-a-visual-and-practical-approach/learn/)
+
+__See me on LinkedIn :__ [Link to my LinkedIn ID](https://www.linkedin.com/in/khajanbhatt/)
     
 # Topics Covered:
   - C++ Basics: Data Types and Variables, Operators
@@ -19,3 +21,5 @@ This repository holds the various projects made by me during the completion of m
   - Containers, Iterators and Algorithms
   - Dear ImGui Real Application Project
   - Car Game in Unreal Engine 5
+
+<img src="C++ Image.jpeg" alt="C++ Course" height="250">
