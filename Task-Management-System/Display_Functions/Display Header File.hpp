@@ -17,8 +17,8 @@ FUNCTIONS :
    -> void Display_Operations(int choice, list <Task> &Tasks, list <Task>::iterator &Completed_Id)
         * Description: Executes the chosen display operation based on user input.
         * Usage: Handles the logic for displaying specific tasks, all tasks, active tasks, or completed tasks.
-        * Details: Uses a switch statement to handle different cases based on the user's choice. Calls corresponding display functions such as Display_Specific_Task(), Display_All_Tasks(), etc. Includes a default case to handle invalid input. */
-       
+        * Details: Uses a switch statement to handle different cases based on the user's choice. Calls corresponding display functions such as Display_Specific_Task(), Display_All_Tasks(), etc. Includes a default case to handle invalid input.*/
+
 #pragma once
 
 #include "Display Function File.hpp"
