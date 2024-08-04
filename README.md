@@ -1,9 +1,9 @@
 # OOPS and Generic Programming
 This branch in the repository specifically contains the missions focused on the Object-Oriented Programming Styles and Generic Programming concepts. 
 
-<div style="text-align:center;">
-  <img src="OOPS-Concepts.jpeg" alt="Object Oriented Programming Style">
-</div>
+<img src="OOPS-Concepts.jpeg" alt="Object Oriented Programming Style">
+
+__See me on LinkedIn__ : [Link to my LinkedIn ID](https://www.linkedin.com/in/khajanbhatt/)
 
 ## Topics Covered:
   - POPS vs OOPS
@@ -45,14 +45,10 @@ This branch in the repository specifically contains the missions focused on the 
       - Function Templates
       - Generic Lambdas
 
-<div style="text-align:center;">
-  <img src="Four-pillars-of-Object-Oriented-Programming.png" alt="Pillars of OOPS" height="250">
-</div>
+<img src="Four-pillars-of-Object-Oriented-Programming.png" alt="Pillars of OOPS" height="250">
 
 ## Files in the Project
 
     Mission_8 .cpp
     Course: Complete C++20 Visual and Practical Course: Zero to Mastery  
     Lecturer: Rehmat M., Video Game Developer (Unreal Engine & C++)  
-
-[Link to the course](https://www.udemy.com/course/mastering-cpp20-programming-a-visual-and-practical-approach/learn/)
