@@ -1,4 +1,4 @@
-# LIBRARY MANAGEMENT SYSTEM
+# TASK MANAGEMENT SYSTEM
 Task Management System (TMS): TASK TRACKER is a comprehensive software solution designed to facilitate the management and operation of tasks. It automates various processes involved in managing tasks, users, and task statuses, making it easier for users to efficiently handle their workflow. The system is intended for use in organizations of all sizes, from small teams to large enterprises.
 
 <img src="Task-Management-System\Task-Management-System.jpeg" alt="Task Tracker" height="250">
